@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Production'
+      name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
@@ -67,7 +67,6 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_06ACE79B76EF43ACA77FF39037B7708C }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FD1E22A48C3647CCAE92DD554D72432E }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E01DE057A8404FE98D25F8B84EE16B35 }}
-          allow-no-subscriptions: true
 
       - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
