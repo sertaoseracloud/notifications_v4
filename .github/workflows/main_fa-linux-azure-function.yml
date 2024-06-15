@@ -68,6 +68,9 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FD1E22A48C3647CCAE92DD554D72432E }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E01DE057A8404FE98D25F8B84EE16B35 }}
           auth-type: IDENTITY
+          enable-AzPSSession: true
+          allow-no-subscriptions: false
+          audience: api://AzureADTokenExchange
 
       - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
