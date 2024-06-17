@@ -1,7 +1,21 @@
-<html>
-    <body>
-    <h1>Azure Web PubSub Notification</h1>
-    <div id="messages"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Web PubSub Notification</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Azure Web PubSub Notification</h1>
+        <div id="messages" class="mt-4 p-3 border rounded bg-light"></div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         (async function () {
             let messages = document.querySelector('#messages');
@@ -12,10 +26,11 @@
 
             ws.onmessage = event => {
                 let m = document.createElement('p');
+                m.className = 'alert alert-info';
                 m.innerText = event.data;
                 messages.appendChild(m);
             };
         })();
     </script>
-    </body>
+</body>
 </html>
