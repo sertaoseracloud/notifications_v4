@@ -7,7 +7,7 @@ const wpsAction = output.generic({
 });
 
 app.timer('notification', {
-    schedule: "*/10 * * * * *",
+    schedule: "*/30 * * * * *",
     extraOutputs: [wpsAction],
     handler: (myTimer, context) => {
         context.extraOutputs.set(wpsAction, {
