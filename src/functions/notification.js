@@ -12,11 +12,19 @@ app.timer('notification', {
     handler: (myTimer, context) => {
         context.extraOutputs.set(wpsAction, {
             actionName: 'sendToAll',
-            data: `{DateTime: ${new Date()} Temperature: ${getValue(22, 1)}\xB0C, Humidity: ${getValue(40, 2)}%}`,
+            data: data(),
             dataType: 'text',
         });
     },
 });
+
+function data(){
+    return JSON.stringify({
+        datetime: new Date(),
+        temperature: `${getValue(22, 1)}\xB0C`,
+        humidity: `${getValue(40, 2)}%`
+    })
+}
 
 function getValue(baseNum, floatNum) {
     return (baseNum + 2 * floatNum * (Math.random() - 0.5)).toFixed(3);
