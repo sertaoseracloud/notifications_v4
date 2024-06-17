@@ -12,7 +12,7 @@ app.timer('notification', {
     handler: (myTimer, context) => {
         context.extraOutputs.set(wpsAction, {
             actionName: 'sendToAll',
-            data: `[DateTime: ${new Date()}] Temperature: ${getValue(22, 1)}\xB0C, Humidity: ${getValue(40, 2)}%`,
+            data: `{DateTime: ${new Date()}] Temperature: ${getValue(22, 1)}\xB0C, Humidity: ${getValue(40, 2)}%}`,
             dataType: 'text',
         });
     },
