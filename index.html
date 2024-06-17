@@ -62,7 +62,6 @@
                     ws.onclose = () => {
                         console.log('WebSocket closed. Reconnecting...');
                         loading.style.display = 'block';
-                        loading.innerHTML = '<div class="alert alert-warn" role="alert">Reconecting...</div>';
                         setTimeout(connectWebSocket, 3000); // Reconnect after 3 seconds
                     };
                 } catch (error) {
